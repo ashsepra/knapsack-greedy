@@ -44,15 +44,15 @@ public class Main {
             knapSackList.add(knapsack);
         }
 
-        // save unsorted list to prevent memory affect
+        // save unsorted list to prevent replacement Knapsack list
         Knapsack[] arrayData2 = new Knapsack[knapSackList.size()];
         arrayData2 = knapSackList.toArray(arrayData2);
 
         Knapsack[] arrayData3 = new Knapsack[knapSackList.size()];
         arrayData3 = knapSackList.toArray(arrayData3);
 
-        new GreedyImpl().sortBy(1, SortType.WEIGHT, knapSackList);
-        List<Knapsack> knapsackList1 = new GreedyImpl().ListOfGreedyDecider(knapSackList, capacity);
+        new GreedyImpl().quickSortBy(SortType.WEIGHT, knapSackList);
+        List<Knapsack> knapsackList1 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
         System.out.println("\nSolution by Weight (kg) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -63,8 +63,8 @@ public class Main {
         System.out.println("========================================================");
 
         knapSackList = Arrays.asList(arrayData2);
-        new GreedyImpl().sortBy(1, SortType.PROFIT, knapSackList);
-        List<Knapsack> knapsackList2 = new GreedyImpl().ListOfGreedyDecider(knapSackList, capacity);
+        new GreedyImpl().quickSortBy(SortType.PROFIT, knapSackList);
+        List<Knapsack> knapsackList2 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
         System.out.println("\nSolution by Profit (Rp) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -75,8 +75,8 @@ public class Main {
         System.out.println("========================================================");
 
         knapSackList = Arrays.asList(arrayData3);
-        new GreedyImpl().sortBy(1, SortType.DENSITY, knapSackList);
-        List<Knapsack> knapsackList3 = new GreedyImpl().ListOfGreedyDecider(knapSackList, capacity);
+        new GreedyImpl().quickSortBy(SortType.DENSITY, knapSackList);
+        List<Knapsack> knapsackList3 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
         System.out.println("\nSolution by Profit per kg (Rp/kg) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -92,7 +92,7 @@ public class Main {
         int ptot1 = 0;
         for (Knapsack knapsack: knapsackList1) {
             wtot1 = wtot1 + knapsack.getWeight();
-            ptot1 = ptot1 + (knapsack.getProfit() * knapsack.getWeight());
+            ptot1 = ptot1 + knapsack.getProfit();
             countW1++;
         }
         int remain1 = capacity - wtot1;
@@ -102,7 +102,7 @@ public class Main {
         int ptot2 = 0;
         for (Knapsack knapsack: knapsackList2) {
             wtot2 = wtot2 + knapsack.getWeight();
-            ptot2 = ptot2 + (knapsack.getProfit() * knapsack.getWeight());
+            ptot2 = ptot2 + knapsack.getProfit();
             countW2++;
         }
         int remain2 = capacity - wtot2;
@@ -112,16 +112,25 @@ public class Main {
         int ptot3 = 0;
         for (Knapsack knapsack: knapsackList3) {
             wtot3 = wtot3 + knapsack.getWeight();
-            ptot3 = ptot3 + (knapsack.getProfit() * knapsack.getWeight());
+            ptot3 = ptot3 + knapsack.getProfit();
             countW3++;
         }
         int remain3 = capacity - wtot3;
-
-        System.out.println("Solution by goods weight can carry " + wtot1 + "kg (" + countW1 + " goods), " +
-                " with profit Rp " + ptot1 + " and remaining capacity of car box capacity is " + remain1 + "kg");
+        double remain3Profit = 0;
+        if (remain3 > 0) {
+            double wsel = knapSackList.get(countW3).getWeight();
+            double psel = knapSackList.get(countW3).getProfit();
+            remain3Profit = (remain3 / wsel) * psel;
+        }
+        System.out.println("\nSolution by goods weight can carry " + wtot1 + "kg (" + countW1 + " goods), " +
+                " with profit Rp" + ptot1 + " and remaining capacity of car box capacity is " + remain1 + "kg");
         System.out.println("Solution by goods profit can carry " + wtot2 + "kg (" + countW2 + " goods), " +
                 " with profit Rp" + ptot2 + " and remaining capacity of car box capacity is " + remain2 + "kg");
         System.out.println("Solution by goods profit per kg can carry " + wtot3 + "kg (" + countW3 + " goods), " +
                 " with profit Rp" + ptot3 + " and remaining capacity of car box capacity is " + remain3 + "kg");
+        System.out.println("Remaining capacity can be the benefit value for third solution because car box can put " +
+                remain3 + "kg with" + " profit Rp" + remain3Profit + ", and the total of the profit is Rp" +
+                (remain3Profit + ptot3));
+
     }
 }
