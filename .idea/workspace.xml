@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30f603cc-4c54-4e36-93d0-10ac7a6b3dbd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ashadi/greedy/object/FractionalKnapsack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GreedyAlgorithm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GreedyAlgorithm/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/GreedyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/GreedyImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/Knapsack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/Knapsack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GreedyAlgorithm/id/ashadi/greedy/object/QuickSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ashadi/greedy/object/GreedyImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ashadi/greedy/object/GreedyImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ashadi/greedy/object/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ashadi/greedy/object/Knapsack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ashadi/greedy/object/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ashadi/greedy/object/QuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ashadi/greedy/object/SortType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ashadi/greedy/object/SortType.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +18,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-686">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="254">
+              <caret line="93" column="44" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GreedyImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GreedyImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/GreedyImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+            <state relative-caret-position="55">
+              <caret line="36" column="13" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,7 +58,7 @@
       <file leaf-file-name="FractionalKnapsack.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/FractionalKnapsack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-274">
+            <state relative-caret-position="-732">
               <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuickSort.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QuickSort.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/QuickSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11">
-              <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+            <state relative-caret-position="71">
+              <caret line="82" column="41" lean-forward="true" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,6 +132,7 @@
       <find>knapsackList3</find>
       <find>car box</find>
       <find>car</find>
+      <find>knapsackList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -260,6 +251,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -271,7 +263,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="智能研发" order="7" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="1.0" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3967742" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="LinkE" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.27204302" />
@@ -297,7 +289,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -691,6 +683,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/QuickSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="82" column="41" lean-forward="true" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/Knapsack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -705,9 +707,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="93" column="44" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/FractionalKnapsack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
+        <state relative-caret-position="-732">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -741,30 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-686">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/GreedyImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/id/ashadi/greedy/object/QuickSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+        <state relative-caret-position="55">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -33,7 +33,6 @@ public class GreedyImpl {
      * Fractional Knapsack problem solution
      */
     public void fractionalKnapsack(FractionalKnapsack fractionalKnapsack, int capacity) {
-        List<Knapsack> knapsackList = new ArrayList<>();
         int wtot = 0;
         int countW = 0;
         int ptot = 0;
@@ -42,7 +41,6 @@ public class GreedyImpl {
             boolean isTaken = capacity >= knapsack.getWeight();
             knapsack.setTake(isTaken);
             if (isTaken) {
-                knapsackList.add(knapsack);
                 wtot = wtot + knapsack.getWeight();
                 ptot = ptot + knapsack.getProfit();
                 countW++;
@@ -56,13 +54,11 @@ public class GreedyImpl {
         fractionalKnapsack.setCountW(countW);
         fractionalKnapsack.setWtot(wtot);
         if (remaining > 0) {
-            double wsel = knapsackList.get(countW - 1).getWeight();
-            double psel = knapsackList.get(countW - 1).getProfit();
+            double wsel = fractionalKnapsack.getKnapsackList().get(countW).getWeight();
+            double psel = fractionalKnapsack.getKnapsackList().get(countW).getProfit();
             double extraProfit = (remaining / wsel) * psel;
             fractionalKnapsack.setRemainProfit(extraProfit);
         }
-
-        fractionalKnapsack.setKnapsackList(knapsackList);
     }
 
     /**
