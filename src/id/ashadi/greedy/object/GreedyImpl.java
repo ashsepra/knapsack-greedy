@@ -1,6 +1,5 @@
 package id.ashadi.greedy.object;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
