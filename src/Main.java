@@ -1,3 +1,4 @@
+import id.ashadi.greedy.object.FractionalKnapsack;
 import id.ashadi.greedy.object.GreedyImpl;
 import id.ashadi.greedy.object.Knapsack;
 import id.ashadi.greedy.object.SortType;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 /**
  * @author ashadi.pratama
+ * Fractional Knapsack Problem with Greedy Algorithm
  */
 public class Main {
 
@@ -17,11 +19,11 @@ public class Main {
         Scanner input  = new Scanner(System.in);
 
         // input number of input
-        System.out.print("Please input number of goods will enter to box car : ");
+        System.out.print("Please input number of goods will enter to box truck : ");
         int dataCount = input.nextInt();
 
         // input number of input
-        System.out.print("Please input capacity of box car (kg) : ");
+        System.out.print("Please input capacity of box truck (kg) : ");
         int capacity = input.nextInt();
 
         List<Knapsack> knapSackList = new ArrayList<>();
@@ -51,8 +53,12 @@ public class Main {
         Knapsack[] arrayData3 = new Knapsack[knapSackList.size()];
         arrayData3 = knapSackList.toArray(arrayData3);
 
+        // Solution
+        int wtot1 = 0, countW1 = 0, ptot1 = 0, remain1 = 0;
+        double remainProfit1 = 0;
         new GreedyImpl().quickSortBy(SortType.WEIGHT, knapSackList);
-        List<Knapsack> knapsackList1 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
+        FractionalKnapsack fractionalKnapsack1 = new FractionalKnapsack(wtot1, countW1, ptot1, remain1, remainProfit1, knapSackList);
+        new GreedyImpl().fractionalKnapsack(fractionalKnapsack1, capacity);
         System.out.println("\nSolution by Weight (kg) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -62,9 +68,12 @@ public class Main {
         }
         System.out.println("========================================================");
 
+        int wtot2 = 0, countW2 = 0, ptot2 = 0, remain2 = 0;
+        double remainProfit2 = 0;
         knapSackList = Arrays.asList(arrayData2);
         new GreedyImpl().quickSortBy(SortType.PROFIT, knapSackList);
-        List<Knapsack> knapsackList2 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
+        FractionalKnapsack fractionalKnapsack2 = new FractionalKnapsack(wtot2, countW2, ptot2, remain2, remainProfit2, knapSackList);
+        new GreedyImpl().fractionalKnapsack(fractionalKnapsack2, capacity);
         System.out.println("\nSolution by Profit (Rp) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -74,9 +83,12 @@ public class Main {
         }
         System.out.println("========================================================");
 
+        int wtot3 = 0, countW3 = 0, ptot3 = 0, remain3 = 0;
+        double remainProfit3 = 0;
         knapSackList = Arrays.asList(arrayData3);
         new GreedyImpl().quickSortBy(SortType.DENSITY, knapSackList);
-        List<Knapsack> knapsackList3 = new GreedyImpl().listOfGreedyDecider(knapSackList, capacity);
+        FractionalKnapsack fractionalKnapsack3 = new FractionalKnapsack(wtot3, countW3, ptot3, remain3, remainProfit3, knapSackList);
+        new GreedyImpl().fractionalKnapsack(fractionalKnapsack3, capacity);
         System.out.println("\nSolution by Profit per kg (Rp/kg) of Goods");
         System.out.println("Index | Weight | Profit | Profit/Kg | Take");
         for (Knapsack knapsack: knapSackList) {
@@ -86,51 +98,30 @@ public class Main {
         }
         System.out.println("========================================================");
 
-        // Solution
-        int wtot1 = 0;
-        int countW1 = 0;
-        int ptot1 = 0;
-        for (Knapsack knapsack: knapsackList1) {
-            wtot1 = wtot1 + knapsack.getWeight();
-            ptot1 = ptot1 + knapsack.getProfit();
-            countW1++;
-        }
-        int remain1 = capacity - wtot1;
+        // Display solution
+        System.out.println("\nSolution by goods weight can carry " + fractionalKnapsack1.getWtot() + "kg (" +
+                fractionalKnapsack1.getCountW() + " goods), " + " with profit Rp" + fractionalKnapsack1.getPtot()
+                + " and remaining capacity of box truck capacity is " + fractionalKnapsack1.getRemain() + "kg");
+        System.out.println("Remaining capacity can be the benefit value for first solution because box truck can put " +
+                fractionalKnapsack1.getRemain() + "kg with" + " profit Rp" + fractionalKnapsack1.getRemainProfit() +
+                ", and the total of the profit is Rp" +
+                (fractionalKnapsack1.getRemainProfit() + fractionalKnapsack1.getPtot()));
 
-        int wtot2 = 0;
-        int countW2 = 0;
-        int ptot2 = 0;
-        for (Knapsack knapsack: knapsackList2) {
-            wtot2 = wtot2 + knapsack.getWeight();
-            ptot2 = ptot2 + knapsack.getProfit();
-            countW2++;
-        }
-        int remain2 = capacity - wtot2;
+        System.out.println("\nSolution by goods profit can carry " + fractionalKnapsack2.getWtot() + "kg (" +
+                fractionalKnapsack2.getCountW() + " goods), " + " with profit Rp" + fractionalKnapsack2.getPtot()
+                + " and remaining capacity of box truck capacity is " + fractionalKnapsack2.getRemain() + "kg");
+        System.out.println("Remaining capacity can be the benefit value for second solution because box truck can put " +
+                fractionalKnapsack2.getRemain() + "kg with" + " profit Rp" + fractionalKnapsack2.getRemainProfit() +
+                ", and the total of the profit is Rp" +
+                (fractionalKnapsack2.getRemainProfit() + fractionalKnapsack2.getPtot()));
 
-        int wtot3 = 0;
-        int countW3 = 0;
-        int ptot3 = 0;
-        for (Knapsack knapsack: knapsackList3) {
-            wtot3 = wtot3 + knapsack.getWeight();
-            ptot3 = ptot3 + knapsack.getProfit();
-            countW3++;
-        }
-        int remain3 = capacity - wtot3;
-        double remain3Profit = 0;
-        if (remain3 > 0) {
-            double wsel = knapSackList.get(countW3).getWeight();
-            double psel = knapSackList.get(countW3).getProfit();
-            remain3Profit = (remain3 / wsel) * psel;
-        }
-        System.out.println("\nSolution by goods weight can carry " + wtot1 + "kg (" + countW1 + " goods), " +
-                " with profit Rp" + ptot1 + " and remaining capacity of car box capacity is " + remain1 + "kg");
-        System.out.println("Solution by goods profit can carry " + wtot2 + "kg (" + countW2 + " goods), " +
-                " with profit Rp" + ptot2 + " and remaining capacity of car box capacity is " + remain2 + "kg");
-        System.out.println("Solution by goods profit per kg can carry " + wtot3 + "kg (" + countW3 + " goods), " +
-                " with profit Rp" + ptot3 + " and remaining capacity of car box capacity is " + remain3 + "kg");
-        System.out.println("Remaining capacity can be the benefit value for third solution because car box can put " +
-                remain3 + "kg with" + " profit Rp" + remain3Profit + ", and the total of the profit is Rp" +
-                (remain3Profit + ptot3));
+        System.out.println("\nSolution by goods profit per kg can carry " + fractionalKnapsack3.getWtot() + "kg (" +
+                fractionalKnapsack3.getCountW() + " goods), " + " with profit Rp" + fractionalKnapsack3.getPtot()
+                + " and remaining capacity of box truck capacity is " + fractionalKnapsack3.getRemain() + "kg");
+        System.out.println("Remaining capacity can be the benefit value for third solution because box truck can put " +
+                fractionalKnapsack3.getRemain() + "kg with" + " profit Rp" + fractionalKnapsack3.getRemainProfit() +
+                ", and the total of the profit is Rp" +
+                (fractionalKnapsack3.getRemainProfit() + fractionalKnapsack3.getPtot()));
 
     }
 }

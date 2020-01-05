@@ -1,9 +1,11 @@
 package id.ashadi.greedy.object;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author ashadi.pratama
+ * Knapsack class object
  */
 public class Knapsack implements Serializable {
     private int index;
@@ -56,12 +58,22 @@ public class Knapsack implements Serializable {
         this.take = take;
     }
 
-    public int hashCode() {
-        return super.hashCode();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Knapsack knapsack = (Knapsack) o;
+        return index == knapsack.index &&
+                weight == knapsack.weight &&
+                profit == knapsack.profit &&
+                Double.compare(knapsack.density, density) == 0 &&
+                take == knapsack.take;
     }
 
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(index, weight, profit, density, take);
     }
 
     protected Object clone() throws CloneNotSupportedException {

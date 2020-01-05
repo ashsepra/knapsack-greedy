@@ -3,7 +3,18 @@ package id.ashadi.greedy.object;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author ashadi.pratama
+ * Greedy implementation object
+ */
 public class GreedyImpl {
+
+    /**
+     * @param mode
+     * @param type
+     * @param knapsacks
+     * Sort the list using Java Util sort implementation
+     */
     public void sortBy(int mode, SortType type, List<Knapsack> knapsacks) {
         SorterUtil sorterUtil = new SorterUtil();
 
@@ -16,20 +27,49 @@ public class GreedyImpl {
         }
     }
 
-    public List<Knapsack> listOfGreedyDecider(List<Knapsack> knapsacks, int capacity) {
+    /**
+     * @param fractionalKnapsack
+     * @param capacity
+     * Fractional Knapsack problem solution
+     */
+    public void fractionalKnapsack(FractionalKnapsack fractionalKnapsack, int capacity) {
         List<Knapsack> knapsackList = new ArrayList<>();
-        for (Knapsack knapsack: knapsacks) {
+        int wtot = 0;
+        int countW = 0;
+        int ptot = 0;
+        int tempCapacity = capacity;
+        for (Knapsack knapsack: fractionalKnapsack.getKnapsackList()) {
             boolean isTaken = capacity >= knapsack.getWeight();
             knapsack.setTake(isTaken);
             if (isTaken) {
                 knapsackList.add(knapsack);
+                wtot = wtot + knapsack.getWeight();
+                ptot = ptot + knapsack.getProfit();
+                countW++;
             }
             capacity = capacity - knapsack.getWeight();
         }
 
-        return knapsackList;
+        int remaining = tempCapacity - wtot;
+        fractionalKnapsack.setRemain(remaining);
+        fractionalKnapsack.setPtot(ptot);
+        fractionalKnapsack.setCountW(countW);
+        fractionalKnapsack.setWtot(wtot);
+        if (remaining > 0) {
+            double wsel = knapsackList.get(countW - 1).getWeight();
+            double psel = knapsackList.get(countW - 1).getProfit();
+            double extraProfit = (remaining / wsel) * psel;
+            fractionalKnapsack.setRemainProfit(extraProfit);
+        }
+
+        fractionalKnapsack.setKnapsackList(knapsackList);
     }
 
+    /**
+     * @param type
+     * @param knapsacks
+     * Quick sort the list using quick sort implementation
+     */
     public void quickSortBy(SortType type, List<Knapsack> knapsacks) {
         SorterUtil sorterUtil = new SorterUtil();
         sorterUtil.quickSortByWeight(knapsacks, type);

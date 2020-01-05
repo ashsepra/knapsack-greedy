@@ -4,12 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author ashadi
+ * @author ashadi.pratama
+ * Quick sort class object
  */
 public class QuickSort {
     private Knapsack[] knapsacks;
     private int number;
 
+    /**
+     * @param knapsacks
+     * @param type
+     * Call descending quick sort based on sort type
+     */
     public void quickSortKnapsack(List<Knapsack> knapsacks, SortType type) {
         // check for empty or null array
         if (knapsacks == null || knapsacks.size() == 0){
@@ -63,6 +69,11 @@ public class QuickSort {
             quickSortByWeight(i, high);
     }
 
+    /**
+     * @param low
+     * @param high
+     * Quick sort algorithm with descending sort order for Knapsack by weight point
+     */
     private void quickSortByProfit(int low, int high) {
         int i = low, j = high;
         int pivot = this.knapsacks[low + (high-low)/2].getProfit();
@@ -90,6 +101,11 @@ public class QuickSort {
             quickSortByProfit(i, high);
     }
 
+    /**
+     * @param low
+     * @param high
+     * Quick sort algorithm with descending sort order for Knapsack by weight point
+     */
     private void quickSortByDensity(int low, int high) {
         int i = low, j = high;
         double pivot = this.knapsacks[low + (high-low)/2].getDensity();
@@ -117,6 +133,11 @@ public class QuickSort {
             quickSortByDensity(i, high);
     }
 
+    /**
+     * @param i
+     * @param j
+     * Swap value from given index of list
+     */
     private void swap(int i, int j) {
         Knapsack knapsackTemp = new Knapsack();
         knapsackTemp.setIndex(knapsacks[i].getIndex());
